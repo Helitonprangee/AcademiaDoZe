@@ -1,7 +1,7 @@
 ﻿using AcademiaDoZe.Domain.Exceptions;
 using AcademiaDoZe.Domain.Services;
 
-//Iago Henrique Schlemper
+//Roberto Antunes Souza
 namespace AcademiaDoZe.Domain.Entities;
 
 public sealed class Logradouro : Entity

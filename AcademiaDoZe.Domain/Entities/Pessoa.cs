@@ -1,4 +1,4 @@
-﻿//Iago Henrique Schlemper
+﻿//Roberto Antunes Souza
 using AcademiaDoZe.Domain.ValueObjects;
 
 namespace AcademiaDoZe.Domain.Entities;

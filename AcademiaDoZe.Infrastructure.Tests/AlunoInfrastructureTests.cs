@@ -1,4 +1,4 @@
-﻿//Iago Henrique Schlemper
+﻿//Heliton
 using AcademiaDoZe.Domain.Entities;
 using AcademiaDoZe.Domain.ValueObjects;
 using AcademiaDoZe.Infrastructure.Repositories;
@@ -15,7 +15,7 @@ public class AlunoInfrastructureTests : TestBase
         Logradouro? logradouro = await repoLogradouro.ObterPorId(logradouroId);
 
         Arquivo arquivo = Arquivo.Criar(new byte[] { 1, 2, 3 });
-        var _cpf = "12346678952";
+        var _cpf = "12746671952";
 
         var repoAlunoCpf = new AlunoRepository(ConnectionString, DatabaseType);
         var cpfExistente = await repoAlunoCpf.CpfJaExiste(_cpf);
@@ -25,7 +25,7 @@ public class AlunoInfrastructureTests : TestBase
             1,
             "Aluno Teste",
             _cpf,
-            new DateOnly(2010, 10, 09),
+            new DateOnly(2000, 10, 09),
             "49999999999",
             "aluno@teste.com",
             logradouro!,

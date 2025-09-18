@@ -1,4 +1,4 @@
-﻿//Iago Henrique Schlemper
+﻿//HELITON
 using AcademiaDoZe.Domain.Entities;
 using AcademiaDoZe.Domain.Enums;
 using AcademiaDoZe.Domain.ValueObjects;
@@ -18,7 +18,7 @@ public class MatriculaInfrastructureTests : TestBase
 
         var arquivo = Arquivo.Criar(new byte[] { 1, 2, 3 });
 
-        var _cpf = "11140608981";
+        var _cpf = "11620172998";
         var repoAluno = new AlunoRepository(ConnectionString, DatabaseType);
         Assert.False(await repoAluno.CpfJaExiste(_cpf), "CPF já existe no banco.");
 
@@ -118,7 +118,7 @@ public class MatriculaInfrastructureTests : TestBase
     }
 
     [Fact]
-    public async Task Matrcula_ObterTodos()
+    public async Task Matricula_ObterTodos()
     {
         // ObterTodos
 

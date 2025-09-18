@@ -1,4 +1,4 @@
-﻿//Iago Henrique Schlemper
+﻿//Roberto Antunes Souza
 namespace AcademiaDoZe.Domain.Exceptions;
 
 // classe base para exceções de domínio

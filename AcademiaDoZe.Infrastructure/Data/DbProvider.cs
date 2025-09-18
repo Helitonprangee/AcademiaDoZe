@@ -1,4 +1,4 @@
-﻿//Iago Henrique Schlemper
+﻿//Roberto Antunes Souza
 using AcademiaDoZe.Infrastructure.Exceptions;
 using Microsoft.Data.SqlClient;
 using MySql.Data.MySqlClient;

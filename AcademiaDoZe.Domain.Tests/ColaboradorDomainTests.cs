@@ -1,4 +1,4 @@
-﻿//Iago Henrique Schlemper
+﻿//Roberto Antunes Souza
 using AcademiaDoZe.Domain.Entities;
 using AcademiaDoZe.Domain.Exceptions;
 using AcademiaDoZe.Domain.ValueObjects;

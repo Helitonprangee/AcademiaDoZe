@@ -1,4 +1,4 @@
-﻿//Iago Henrique Schlemper
+﻿//Roberto Antunes Souza
 namespace AcademiaDoZe.Application.DTOs;
 
 public class ArquivoDTO

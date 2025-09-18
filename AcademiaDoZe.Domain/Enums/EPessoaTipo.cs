@@ -1,4 +1,4 @@
-﻿//Iago Henrique Schlemper
+﻿//Roberto Antunes Souza
 using System.ComponentModel.DataAnnotations;
 
 namespace AcademiaDoZe.Domain.Enums;
