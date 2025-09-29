@@ -1,4 +1,6 @@
-﻿using AcademiaDoZe.Presentation.AppMaui.ViewModels;
+﻿//Heliton
+
+using AcademiaDoZe.Presentation.AppMaui.ViewModels;
 using AcademiaDoZe.Presentation.AppMaui.Views;
 using Microsoft.Extensions.Logging;
 using AcademiaDoZe.Presentation.AppMaui.Configuration;
@@ -20,6 +22,14 @@ namespace AcademiaDoZe.Presentation.AppMaui
             // Configurar serviços da aplicação e repositórios
             ConfigurationHelper.ConfigureServices(builder.Services);
             // Registrar ViewModels
+
+            // Registrar ViewModels
+            builder.Services.AddTransient<ColaboradorListViewModel>();
+            builder.Services.AddTransient<ColaboradorViewModel>();
+            // Registrar Views
+            builder.Services.AddTransient<ColaboradorListPage>();
+            builder.Services.AddTransient<ColaboradorPage>();
+
 
             builder.Services.AddTransient<DashboardListViewModel>();
             builder.Services.AddTransient<LogradouroListViewModel>();
