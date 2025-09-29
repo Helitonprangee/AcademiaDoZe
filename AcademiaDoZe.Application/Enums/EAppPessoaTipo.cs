@@ -1,4 +1,4 @@
-﻿// Iago Henrique Schlemper
+﻿//Heliton
 using System.ComponentModel.DataAnnotations;
 namespace AcademiaDoZe.Application.Enums;
 

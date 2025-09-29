@@ -1,34 +1,56 @@
-﻿//Heliton
-
-using AcademiaDoZe.Application.DependencyInjection;
+﻿using AcademiaDoZe.Application.DependencyInjection;
 using AcademiaDoZe.Application.Enums;
+using AcademiaDoZe.Presentation.AppMaui.Message;
+using CommunityToolkit.Mvvm.Messaging;
+
 namespace AcademiaDoZe.Presentation.AppMaui.Configuration
 {
+    /* ConfigurationHelper - config inicial a partir das Preferences - recarga automática via Messenger */
     public static class ConfigurationHelper
     {
         public static void ConfigureServices(IServiceCollection services)
         {
-            // dados conexão
+            // lê as preferências do banco de dados
+            var (connectionString, databaseType) = ReadDbPreferences();
+            var repoConfig = new RepositoryConfig { ConnectionString = connectionString, DatabaseType = databaseType };
 
-            const string dbServer = "172.24.32.1";
-            const string dbDatabase = "db_academia_do_ze";
-            const string dbUser = "sa";
-            const string dbPassword = "abcBolinhas12345";
-            const string dbComplemento = "TrustServerCertificate=True;Encrypt=True;";
-            // se for necessário indicar a porta, incluir junto em dbComplemento
-
-            // Configurações de conexão
-            const string connectionString = $"Server={dbServer};Database={dbDatabase};User Id={dbUser};Password={dbPassword};{dbComplemento}";
-
-            const EAppDatabaseType databaseType = EAppDatabaseType.SqlServer;
-            // Configura a fábrica de repositórios com a string de conexão e tipo de banco
-            services.AddSingleton(new RepositoryConfig
-            {
-                ConnectionString = connectionString,
-                DatabaseType = databaseType
-            });
-            // configura os serviços da camada de aplicação
+            services.AddSingleton(repoConfig);
             services.AddApplicationServices();
+
+            // Assina a mensagem e aplica as mudanças automaticamente
+            WeakReferenceMessenger.Default.Register<RepositoryConfig, BancoPreferencesUpdatedMessage>(
+                // recipient é o RepositoryConfig singleton
+                recipient: repoConfig, handler: static (recipient, message) =>
+                {
+                    // aplica as novas configurações
+                    var (connectionString, databaseType) = ReadDbPreferences();
+
+                    recipient.ConnectionString = connectionString;
+                    recipient.DatabaseType = databaseType;
+                });
+        }
+
+        private static (string ConnectionString, EAppDatabaseType DatabaseType) ReadDbPreferences()
+        {
+            // dados conexão, usando valores padrão para MySQL
+            string dbServer = Preferences.Get("Servidor", "localhost");
+            string dbDatabase = Preferences.Get("Banco", "db_academia_do_ze");
+            string dbUser = Preferences.Get("Usuario", "root");
+            string dbPassword = Preferences.Get("Senha", "2004");
+            string dbComplemento = Preferences.Get("Complemento", "Port=3306;SslMode=None;");
+
+            // monta a connection string MySQL
+            string connectionString = $"Server={dbServer};Database={dbDatabase};Uid={dbUser};Pwd={dbPassword};{dbComplemento}";
+
+            // tipo de banco
+            var dbType = Preferences.Get("DatabaseType", EAppDatabaseType.MySql.ToString()) switch
+            {
+                "SqlServer" => EAppDatabaseType.SqlServer,
+                "MySql" => EAppDatabaseType.MySql,
+                _ => EAppDatabaseType.MySql
+            };
+
+            return (connectionString, dbType);
         }
     }
 }

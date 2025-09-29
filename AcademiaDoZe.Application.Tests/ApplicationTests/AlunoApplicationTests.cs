@@ -9,7 +9,7 @@ namespace AcademiaDoZe.Application.Tests;
 public class AlunoApplicationTests
 {
     // Configurações de conexão
-    const string connectionString = "Server=localhost;Database=db_academia_do_ze;User Id=root;Password=4457;";
+    const string connectionString = "Server=localhost;Database=db_academia_do_ze;User Id=root;Password=2004;";
     const EAppDatabaseType databaseType = EAppDatabaseType.MySql;
     [Fact(Timeout = 60000)]
     public async Task AlunoService_Integracao_Adicionar_Obter_Atualizar_Remover()
@@ -30,7 +30,7 @@ public class AlunoApplicationTests
         Assert.Equal(5, logradouro!.Id);
         // cria um arquivo (para facilitar, copie uma foto para dentro do diretório com os fontes do teste)
         // caminho relativo da foto
-        var caminhoFoto = Path.Combine("..", "..", "..", "foto_teste.png");
+        var caminhoFoto = Path.Combine("..", "..", "..", "foto_teste.jpg");
         ArquivoDTO foto = new();
 
         if (File.Exists(caminhoFoto)) { foto.Conteudo = await File.ReadAllBytesAsync(caminhoFoto); }

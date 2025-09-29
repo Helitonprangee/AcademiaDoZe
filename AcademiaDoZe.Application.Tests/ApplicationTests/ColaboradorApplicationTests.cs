@@ -1,4 +1,4 @@
-﻿//Roberto Antunes Souza
+﻿//Heliton
 using AcademiaDoZe.Application.DTOs;
 using AcademiaDoZe.Application.Enums;
 using AcademiaDoZe.Application.Interfaces;
@@ -8,9 +8,11 @@ namespace AcademiaDoZe.Application.Tests;
 
 public class ColaboradorApplicationTests
 {
-    // Configurações de conexão
-    const string connectionString = "Server=localhost;Database=db_academia_do_ze;User Id=root;Password=4457;";
+    
+    const string connectionString = "Server=localhost;Port=3306;Database=db_academia_do_ze;Uid=root;Pwd=2004;";
+
     const EAppDatabaseType databaseType = EAppDatabaseType.MySql;
+
     [Fact(Timeout = 60000)]
     public async Task ColaboradorService_Integracao_Adicionar_Obter_Atualizar_Remover()
     {
@@ -30,7 +32,7 @@ public class ColaboradorApplicationTests
         Assert.Equal(5, logradouro!.Id);
         // cria um arquivo (para facilitar, copie uma foto para dentro do diretório com os fontes do teste)
         // caminho relativo da foto
-        var caminhoFoto = Path.Combine("..", "..", "..", "foto_teste.png");
+        var caminhoFoto = Path.Combine("..", "..", "..", "foto_teste.jpg");
         ArquivoDTO foto = new();
 
         if (File.Exists(caminhoFoto)) { foto.Conteudo = await File.ReadAllBytesAsync(caminhoFoto); }
@@ -41,7 +43,7 @@ public class ColaboradorApplicationTests
             Nome = "Colaborador Teste",
             Cpf = _cpf,
             DataNascimento = DateOnly.FromDateTime(DateTime.Today.AddYears(-20)),
-            Telefone = "11999999999",
+            Telefone = "11999899999",
             Email = "Colaborador@teste.com",
             Endereco = logradouro,
             Numero = "100",
@@ -60,7 +62,7 @@ public class ColaboradorApplicationTests
             criado = await colaboradorService.AdicionarAsync(dto);
             // Assert - criação
             Assert.NotNull(criado);
-            Assert.True(criado!.Id > 0);
+            Assert.True(criado!.Id > 5);
             Assert.Equal(_cpf, criado.Cpf);
             // Act - Obter por cpf
             var obtido = await colaboradorService.ObterPorCpfAsync(criado.Cpf);

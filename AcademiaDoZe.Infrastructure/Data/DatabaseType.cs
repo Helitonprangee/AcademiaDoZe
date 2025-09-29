@@ -1,4 +1,4 @@
-﻿//Roberto Antunes Souza
+﻿//Heliton
 namespace AcademiaDoZe.Infrastructure.Data;
 
 public enum DatabaseType { SqlServer, MySql }

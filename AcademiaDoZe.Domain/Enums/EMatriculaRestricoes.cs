@@ -1,4 +1,4 @@
-﻿//Roberto Antunes Souza
+﻿//Heliton
 using System.ComponentModel.DataAnnotations;
 
 namespace AcademiaDoZe.Domain.Enums;

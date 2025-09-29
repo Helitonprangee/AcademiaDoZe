@@ -1,4 +1,4 @@
-﻿//Roberto Antunes Souza
+﻿//Heliton
 namespace AcademiaDoZe.Domain.Exceptions;
 
 // classe base para exceções de domínio

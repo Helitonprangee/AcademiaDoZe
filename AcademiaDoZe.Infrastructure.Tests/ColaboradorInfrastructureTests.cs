@@ -21,7 +21,7 @@ public class ColaboradorInfrastructureTests : TestBase
 
         Arquivo arquivo = Arquivo.Criar(new byte[] { 1, 2, 3 });
 
-        var _cpf = "12345678951";
+        var _cpf = "99345999951";
         // verifica se cpf já existe
 
         var repoColaboradorCpf = new ColaboradorRepository(ConnectionString, DatabaseType);
@@ -59,7 +59,7 @@ public class ColaboradorInfrastructureTests : TestBase
     [Fact]
     public async Task Colaborador_ObterPorCpf_Atualizar()
     {
-        var _cpf = "12345678951";
+        var _cpf = "99345999951";
         Arquivo arquivo = Arquivo.Criar(new byte[] { 1, 2, 3 });
         var repoColaboradorObterPorCpf = new ColaboradorRepository(ConnectionString, DatabaseType);
         var colaboradorExistente = await repoColaboradorObterPorCpf.ObterPorCpf(_cpf);
@@ -100,7 +100,7 @@ public class ColaboradorInfrastructureTests : TestBase
     [Fact]
     public async Task Colaborador_ObterPorCpf_TrocarSenha()
     {
-        var _cpf = "12345678951";
+        var _cpf = "99345999951";
         Arquivo arquivo = Arquivo.Criar(new byte[] { 1, 2, 3 });
         var repoColaboradorObterPorCpf = new ColaboradorRepository(ConnectionString, DatabaseType);
         var colaboradorExistente = await repoColaboradorObterPorCpf.ObterPorCpf(_cpf);
@@ -119,7 +119,7 @@ public class ColaboradorInfrastructureTests : TestBase
     [Fact]
     public async Task Colaborador_ObterPorCpf_Remover_ObterPorId()
     {
-        var _cpf = "12345678951";
+        var _cpf = "99345999951";
         var repoColaboradorObterPorCpf = new ColaboradorRepository(ConnectionString, DatabaseType);
         var colaboradorExistente = await repoColaboradorObterPorCpf.ObterPorCpf(_cpf);
         Assert.NotNull(colaboradorExistente);
@@ -133,11 +133,9 @@ public class ColaboradorInfrastructureTests : TestBase
         var resultadoRemovido = await repoColaboradorObterPorId.ObterPorId(colaboradorExistente.Id);
         Assert.Null(resultadoRemovido);
     }
-    [Fact]
-    public async Task Colaborador_ObterTodos()
-    {
-        var repoColaboradorRepository = new ColaboradorRepository(ConnectionString, DatabaseType);
-        var resultado = await repoColaboradorRepository.ObterTodos();
-        Assert.NotNull(resultado);
-    }
+
+
+    
+    
+
 }

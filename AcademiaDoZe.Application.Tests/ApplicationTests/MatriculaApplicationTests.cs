@@ -1,4 +1,4 @@
-﻿//Roberto Antunes Souza
+﻿//Heliton
 using AcademiaDoZe.Application.DTOs;
 using AcademiaDoZe.Application.Enums;
 using AcademiaDoZe.Application.Interfaces;
@@ -8,8 +8,9 @@ namespace AcademiaDoZe.Application.Tests;
 
 public class MatriculaApplicationTests
 {
-    // Configurações de conexão (iguais às que você já usa)
-    const string connectionString = "Server=localhost;Database=db_academia_do_ze;User Id=root;Password=4457;";
+    
+    const string connectionString = "Server=localhost;Port=3306;Database=db_academia_do_ze;Uid=root;Pwd=2004;";
+
     const EAppDatabaseType databaseType = EAppDatabaseType.MySql;
 
     [Fact(Timeout = 60000)]
@@ -27,12 +28,12 @@ public class MatriculaApplicationTests
         var _cpf = GerarCpfFake();
 
         // obter o logradouro (mantendo seu padrão)
-        var logradouro = await logradouroService.ObterPorIdAsync(5);
+        var logradouro = await logradouroService.ObterPorIdAsync(4);
         Assert.NotNull(logradouro);
-        Assert.Equal(5, logradouro!.Id);
+        Assert.Equal(4, logradouro!.Id);
 
         // cria um arquivo de foto (mantendo exatamente seu padrão)
-        var caminhoFoto = Path.Combine("..", "..", "..", "foto_teste.png");
+        var caminhoFoto = Path.Combine("..", "..", "..", "foto_teste.jpg");
         ArquivoDTO foto = new();
         if (File.Exists(caminhoFoto))
         {

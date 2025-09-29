@@ -1,4 +1,4 @@
-﻿//Roberto Antunes Souza
+﻿//Heliton
 using AcademiaDoZe.Domain.ValueObjects;
 using AcademiaDoZe.Domain.Exceptions;
 using AcademiaDoZe.Domain.Services;
@@ -35,6 +35,7 @@ public class Aluno : Pessoa
         senha = NormalizadoService.LimparEspacos(senha);
         if (NormalizadoService.ValidarFormatoSenha(senha)) throw new DomainException("SENHA_FORMATO");
         if (foto == null) throw new DomainException("FOTO_OBRIGATORIO");
+
         if (endereco == null) throw new DomainException("LOGRADOURO_OBRIGATORIO");
 
         if (NormalizadoService.TextoVazioOuNulo(numero)) throw new DomainException("NUMERO_OBRIGATORIO");

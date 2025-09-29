@@ -1,4 +1,4 @@
-﻿// Iago Henrique Schlemper
+﻿//Heliton
 namespace AcademiaDoZe.Application.Enums;
 
 public enum EAppDatabaseType

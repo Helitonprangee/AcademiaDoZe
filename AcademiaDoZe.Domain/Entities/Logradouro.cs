@@ -1,7 +1,7 @@
 ﻿using AcademiaDoZe.Domain.Exceptions;
 using AcademiaDoZe.Domain.Services;
 
-//Roberto Antunes Souza
+//Heliton
 namespace AcademiaDoZe.Domain.Entities;
 
 public sealed class Logradouro : Entity

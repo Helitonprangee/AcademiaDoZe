@@ -1,4 +1,4 @@
-﻿//Roberto Antunes Souza
+﻿//Heliton
 namespace AcademiaDoZe.Infrastructure.Exceptions;
 
 // Classe base para exceções de infraestrutura

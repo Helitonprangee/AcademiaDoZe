@@ -1,4 +1,4 @@
-﻿// Iago Henrique Schlemper
+﻿//Heliton
 using Konscious.Security.Cryptography;
 using System.Security.Cryptography;
 using System.Text;

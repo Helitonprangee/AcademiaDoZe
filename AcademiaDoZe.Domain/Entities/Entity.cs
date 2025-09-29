@@ -1,4 +1,4 @@
-﻿//Roberto Antunes Souza
+﻿//Heliton
 using AcademiaDoZe.Domain.Exceptions;
 
 namespace AcademiaDoZe.Domain.Entities;

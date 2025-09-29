@@ -13,7 +13,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<!-- Display name -->
-		<ApplicationTitle>AcademiaDoZe.Presentation.AppMaui</ApplicationTitle>
+		<ApplicationTitle>GYM do Zé</ApplicationTitle>
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.academiadoze.presentation.appmaui</ApplicationId>
 		<!-- Versions -->
@@ -42,14 +42,17 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.8" />
-		<PackageReference Include="Microsoft.Maui.Controls" Version="9.0.100" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.8" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.9" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="9.0.110" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.9" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\AcademiaDoZe.Application\AcademiaDoZe.Application.csproj" />
 	</ItemGroup>
 	<ItemGroup>
+		<MauiXaml Update="Views\ConfigPage.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
 		<MauiXaml Update="Views\DashboardListPage.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>

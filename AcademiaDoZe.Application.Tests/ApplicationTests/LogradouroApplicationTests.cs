@@ -1,4 +1,4 @@
-﻿//Roberto Antunes Souza
+﻿//Heliton
 using AcademiaDoZe.Application.DTOs;
 using AcademiaDoZe.Application.Enums;
 using AcademiaDoZe.Application.Interfaces;
@@ -8,8 +8,8 @@ namespace AcademiaDoZe.Application.Tests;
 
 public class LogradouroApplicationTests
 {
-    // Configurações de conexão
-    const string connectionString = "Server=localhost;Database=db_academia_do_ze;User Id=root;Password=4457;";
+    const string connectionString = "Server=localhost;Port=3306;Database=db_academia_do_ze;Uid=root;Pwd=2004;";
+
     const EAppDatabaseType databaseType = EAppDatabaseType.MySql;
     [Fact(Timeout = 60000)]
     public async Task LogradouroService_Integracao_Adicionar_Obter_Atualizar_Remover()

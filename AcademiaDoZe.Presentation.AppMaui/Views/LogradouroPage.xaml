@@ -21,44 +21,44 @@ Title="{Binding Title}">
             </Border>
             <!-- Dados do Logradouro -->
 
-			<!-- Dados do Logradouro -->
+            <!-- Dados do Logradouro -->
 
-			<Border Style="{StaticResource CardBorder}" Margin="15,10">
+            <Border Style="{StaticResource CardBorder}" Margin="15,10">
 
-				<StackLayout Spacing="15">
-					<Label Text="{Binding Logradouro.Id, StringFormat='Logradouro ID: {0}'}" Style="{StaticResource SubHeadline}"/>
-					<!-- Nome -->
+                <StackLayout Spacing="15">
+                    <Label Text="{Binding Logradouro.Id, StringFormat='Logradouro ID: {0}'}" Style="{StaticResource SubHeadline}"/>
+                    <!-- Nome -->
 
-					<StackLayout Spacing="5">
-						<Label Text="Nome/Rua"/>
-						<Entry Text="{Binding Logradouro.Nome}" Placeholder="Digite o nome da rua..."/>
-					</StackLayout>
-					<!-- Bairro -->
+                    <StackLayout Spacing="5">
+                        <Label Text="Nome/Rua"/>
+                        <Entry Text="{Binding Logradouro.Nome}" Placeholder="Digite o nome da rua..."/>
+                    </StackLayout>
+                    <!-- Bairro -->
 
-					<StackLayout Spacing="5">
-						<Label Text="Bairro"/>
-						<Entry Text="{Binding Logradouro.Bairro}" Placeholder="Digite o bairro..."/>
-					</StackLayout>
-					<!-- Cidade -->
+                    <StackLayout Spacing="5">
+                        <Label Text="Bairro"/>
+                        <Entry Text="{Binding Logradouro.Bairro}" Placeholder="Digite o bairro..."/>
+                    </StackLayout>
+                    <!-- Cidade -->
 
-					<StackLayout Spacing="5">
-						<Label Text="Cidade"/>
-						<Entry Text="{Binding Logradouro.Cidade}" Placeholder="Digite a cidade..."/>
-					</StackLayout>
-					<!-- Estado -->
+                    <StackLayout Spacing="5">
+                        <Label Text="Cidade"/>
+                        <Entry Text="{Binding Logradouro.Cidade}" Placeholder="Digite a cidade..."/>
+                    </StackLayout>
+                    <!-- Estado -->
 
-					<StackLayout Spacing="5">
-						<Label Text="Estado"/>
-						<Entry Text="{Binding Logradouro.Estado}" Placeholder="Digite o estado..."/>
-					</StackLayout>
-					<!-- Pa�s -->
+                    <StackLayout Spacing="5">
+                        <Label Text="Estado"/>
+                        <Entry Text="{Binding Logradouro.Estado}" Placeholder="Digite o estado..."/>
+                    </StackLayout>
+                    <!-- Pa�s -->
 
-					<StackLayout Spacing="5">
-						<Label Text="Pa�s"/>
-						<Entry Text="{Binding Logradouro.Pais}" Placeholder="Digite o pa�s..."/>
-					</StackLayout>
-				</StackLayout>
-			</Border>
+                    <StackLayout Spacing="5">
+                        <Label Text="Pa�s"/>
+                        <Entry Text="{Binding Logradouro.Pais}" Placeholder="Digite o pa�s..."/>
+                    </StackLayout>
+                </StackLayout>
+            </Border>
             <!-- Bot�es de A��o -->
 
             <Grid ColumnDefinitions="*,*" ColumnSpacing="10" Margin="15,10">
