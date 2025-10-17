@@ -6,6 +6,9 @@ public interface IAlunoService
 {
     Task<AlunoDTO> ObterPorIdAsync(int id);
     Task<IEnumerable<AlunoDTO>> ObterTodosAsync();
+    // highlight-start
+    Task<IEnumerable<AlunoDTO>> BuscarAsync(string termoBusca); // <- ADICIONE ESTA LINHA
+    // highlight-end
     Task<AlunoDTO> AdicionarAsync(AlunoDTO alunoDto);
     Task<AlunoDTO> AtualizarAsync(AlunoDTO alunoDto);
     Task<bool> RemoverAsync(int id);

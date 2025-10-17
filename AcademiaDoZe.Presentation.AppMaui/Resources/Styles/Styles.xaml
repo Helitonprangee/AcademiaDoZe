@@ -483,6 +483,7 @@
         <Setter Property="HeightRequest" Value="32"/>
         <Setter Property="WidthRequest" Value="60"/>
     </Style>
+    
     <Style TargetType="Button" x:Key="ButtonDanger">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Magenta}, Dark={StaticResource Magenta}}"/>
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource White}}"/>
@@ -491,4 +492,14 @@
         <Setter Property="HeightRequest" Value="32"/>
         <Setter Property="WidthRequest" Value="60"/>
     </Style>
+
+    <Style TargetType="Button" x:Key="IconButton">
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="BorderColor" Value="Transparent"/>
+            <Setter Property="BorderWidth" Value="0"/>
+            <Setter Property="WidthRequest" Value="44"/>
+            <Setter Property="HeightRequest" Value="44"/>
+        </Style>
+        
+   
 </ResourceDictionary>

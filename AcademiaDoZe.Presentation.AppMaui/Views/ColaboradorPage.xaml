@@ -79,7 +79,7 @@ Title="{Binding Title}">
             <Border Style="{StaticResource CardBorder}" Margin="15,10">
 
                 <StackLayout Spacing="15">
-                    <Label Text="Endere�o" Style="{StaticResource SubHeadline}"/>
+                    <Label Text="Endereço" Style="{StaticResource SubHeadline}"/>
                     <!-- Busca CEP -->
 
                     <Grid ColumnDefinitions="*,Auto">
@@ -100,11 +100,11 @@ Title="{Binding Title}">
                             <Label Text="{Binding Colaborador.Endereco.Bairro, StringFormat='Bairro: {0}'}"/>
                             <Label Text="{Binding Colaborador.Endereco.Cidade, StringFormat='Cidade: {0}'}"/>
                             <Label Text="{Binding Colaborador.Endereco.Estado, StringFormat='Estado: {0}'}"/>
-                            <Label Text="{Binding Colaborador.Endereco.Pais, StringFormat='Pa�s: {0}'}"/>
+                            <Label Text="{Binding Colaborador.Endereco.Pais, StringFormat='País: {0}'}"/>
                         </StackLayout>
                     </Border>
                     <StackLayout Spacing="5">
-                        <Label Text="N�mero"/>
+                        <Label Text="Numero"/>
                         <Entry Text="{Binding Colaborador.Numero}" Placeholder="N�mero" IsReadOnly="False"/>
                     </StackLayout>
                     <StackLayout Spacing="5">
@@ -128,7 +128,7 @@ Title="{Binding Title}">
                 <StackLayout Spacing="15">
                     <Label Text="Dados de Trabalho" Style="{StaticResource SubHeadline}"/>
                     <StackLayout Spacing="5">
-                        <Label Text="Data de Admiss�o"/>
+                        <Label Text="Data de Admissão"/>
                         <DatePicker Date="{Binding Colaborador.DataAdmissao, Converter={StaticResource DateOnlyConverter}, Mode=TwoWay}"/>
                     </StackLayout>
                     <StackLayout Spacing="5">
@@ -140,7 +140,7 @@ Title="{Binding Title}">
                         </Picker>
                     </StackLayout>
                     <StackLayout Spacing="5">
-                        <Label Text="V�nculo"/>
+                        <Label Text="Vinculo"/>
                         <Picker ItemsSource="{Binding ColaboradorVinculos}" SelectedItem="{Binding Colaborador.Vinculo}">
                             <Picker.ItemDisplayBinding>
                                 <Binding Converter="{StaticResource EnumDisplay}" />

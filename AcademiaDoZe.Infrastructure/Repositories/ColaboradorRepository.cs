@@ -12,7 +12,7 @@ namespace AcademiaDoZe.Infrastructure.Repositories;
 public class ColaboradorRepository : BaseRepository<Colaborador>, IColaboradorRepository
 {
     public ColaboradorRepository(string connectionString, DatabaseType databaseType) : base(connectionString, databaseType) { }
-   
+
     protected override async Task<Colaborador> MapAsync(DbDataReader reader)
     {
         try

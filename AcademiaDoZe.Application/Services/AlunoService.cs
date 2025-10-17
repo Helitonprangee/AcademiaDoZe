@@ -78,8 +78,24 @@ public class AlunoService : IAlunoService
     {
         var alunos = await _repoFactory().ObterTodos();
         return [.. alunos.Select(c => c.ToDto())];
-
     }
+
+    // highlight-start
+    public async Task<IEnumerable<AlunoDTO>> BuscarAsync(string termoBusca)
+    {
+        // Se o termo da busca for vazio, retorna todos os alunos
+        if (string.IsNullOrWhiteSpace(termoBusca))
+        {
+            return await ObterTodosAsync();
+        }
+
+        // Caso contrário, chama o método de busca no repositório
+        var alunos = await _repoFactory().Buscar(termoBusca);
+        // Mapeia as entidades para DTOs e retorna a lista
+        return alunos.Select(aluno => aluno.ToDto());
+    }
+    // highlight-end
+
     public async Task<bool> RemoverAsync(int id)
     {
         var aluno = await _repoFactory().ObterPorId(id);

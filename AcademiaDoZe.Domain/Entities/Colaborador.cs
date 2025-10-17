@@ -59,4 +59,9 @@ public class Colaborador : Pessoa
         return new Colaborador(id, nome, cpf, dataNascimento, telefone, email, endereco, numero, complemento, senha, foto,
             dataAdmissao, tipo, vinculo);
     }
+
+    public static Colaborador Criar(object id, string v, object cpf, object dataNascimento, object telefone, object email, object endereco, object numero, object complemento, object senha, Arquivo arquivo, object dataAdmissao, object tipo, object vinculo)
+    {
+        throw new NotImplementedException();
+    }
 }

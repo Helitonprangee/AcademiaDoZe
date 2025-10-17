@@ -24,16 +24,16 @@ public class AlunoRepository : BaseRepository<Aluno>, IAlunoRepository
             // Cria o objeto Colaborador usando o método de fábrica
             var aluno = Aluno.Criar(
                 id: reader["id_aluno"] is DBNull ? 0 : Convert.ToInt32(reader["id_aluno"]),
-            cpf: reader["cpf"].ToString()!,
-            telefone: reader["telefone"].ToString()!,
-            nome: reader["nome"].ToString()!,
-            dataNascimento: DateOnly.FromDateTime(Convert.ToDateTime(reader["nascimento"])),
-            email: reader["email"].ToString()!,
-            endereco: logradouro,
-            numero: reader["numero"].ToString()!,
-            complemento: reader["complemento"]?.ToString(),
-            senha: reader["senha"].ToString()!,
-            foto: reader["foto"] is DBNull ? null : Arquivo.Criar((byte[])reader["foto"])
+                cpf: reader["cpf"].ToString()!,
+                telefone: reader["telefone"].ToString()!,
+                nome: reader["nome"].ToString()!,
+                dataNascimento: DateOnly.FromDateTime(Convert.ToDateTime(reader["nascimento"])),
+                email: reader["email"].ToString()!,
+                endereco: logradouro,
+                numero: reader["numero"].ToString()!,
+                complemento: reader["complemento"]?.ToString(),
+                senha: reader["senha"].ToString()!,
+                foto: reader["foto"] is DBNull ? null : Arquivo.Criar((byte[])reader["foto"])
             );
             // Define o ID usando reflection
             var idProperty = typeof(Entity).GetProperty("Id");
@@ -162,8 +162,9 @@ public class AlunoRepository : BaseRepository<Aluno>, IAlunoRepository
             string query = $"UPDATE {TableName} SET senha = @NovaSenha WHERE id_aluno = @Id";
 
             await using var command = DbProvider.CreateCommand(query, connection);
-            command.Parameters.Add(DbProvider.CreateParameter("?@NovaSenha", novaSenha, DbType.String, _databaseType));
-            command.Parameters.Add(DbProvider.CreateParameter("?@Id", id, DbType.Int32, _databaseType));
+            // CORREÇÃO AQUI: removido '?' dos nomes dos parâmetros
+            command.Parameters.Add(DbProvider.CreateParameter("@NovaSenha", novaSenha, DbType.String, _databaseType));
+            command.Parameters.Add(DbProvider.CreateParameter("@Id", id, DbType.Int32, _databaseType));
 
             int linhasAfetadas = await command.ExecuteNonQueryAsync();
             return linhasAfetadas > 0;
@@ -173,4 +174,35 @@ public class AlunoRepository : BaseRepository<Aluno>, IAlunoRepository
             throw new InvalidOperationException($"Erro ao trocar senha do aluno ID {id}: {ex.Message}", ex);
         }
     }
+
+    // highlight-start
+    public async Task<IEnumerable<Aluno>> Buscar(string termoBusca)
+    {
+        try
+        {
+            await using var connection = await GetOpenConnectionAsync();
+            // A consulta busca pelo termo no nome ou no CPF do aluno
+            string query = $"SELECT * FROM {TableName} WHERE nome LIKE @TermoBusca OR cpf LIKE @TermoBusca";
+
+            await using var command = DbProvider.CreateCommand(query, connection);
+            // Adiciona '%' para que o LIKE funcione para qualquer parte do texto
+            command.Parameters.Add(DbProvider.CreateParameter("@TermoBusca", $"%{termoBusca}%", DbType.String, _databaseType));
+
+            var alunos = new List<Aluno>();
+            using var reader = await command.ExecuteReaderAsync();
+
+            while (await reader.ReadAsync())
+            {
+                // Reutiliza o método de mapeamento para cada linha encontrada
+                alunos.Add(await MapAsync(reader));
+            }
+
+            return alunos;
+        }
+        catch (DbException ex)
+        {
+            throw new InvalidOperationException($"Erro ao buscar alunos por '{termoBusca}': {ex.Message}", ex);
+        }
+    }
+    // highlight-end
 }

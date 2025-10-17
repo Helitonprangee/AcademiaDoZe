@@ -11,7 +11,14 @@ Title="{Binding Title}">
 
             <StackLayout Spacing="10" Margin="0,0,0,20">
 
-                <Image Source="academiadoze.png" HorizontalOptions="Center" VerticalOptions="Start" HeightRequest="200" WidthRequest="200"/>
+                <Image
+                Source="{AppThemeBinding Light='academiadoze_claro.png', Dark='academiadoze_escuro.png'}"
+                SemanticProperties.Description="Logo da Academia do Zé"
+                HeightRequest="185"
+                HorizontalOptions="Center" />
+                
+                
+                
                 <Label Text="Academia do Zé" Style="{StaticResource Headline}"/>
                 <Label Text="Sistema de Gerenciamento" Style="{StaticResource SubHeadline}"/>
             </StackLayout>
@@ -65,7 +72,7 @@ Title="{Binding Title}">
                     </Border.GestureRecognizers>
                     <StackLayout Spacing="10">
                         <Label Text="{Binding TotalMatriculas}" Style="{StaticResource SubHeadline}"/>
-                        <Label Text="Matr�culas" HorizontalTextAlignment="Center"/>
+                        <Label Text="Matriculas" HorizontalTextAlignment="Center"/>
                     </StackLayout>
                 </Border>
 
